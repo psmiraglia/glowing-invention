@@ -1,23 +1,18 @@
-# Describe the scope of the PR
+## Scope of the pull request
 
-_Write here what the PR does. Also mention any issue it solves OR creates_
+Write here what the PR does. Also mention any issue it solves OR creates.
 
-_Solved_
+### Solved
 
-- #123 #456
+- #123
+- #456
 
-_Added_
+### Added
 
 - #789
-
-## Add any shortcut taken
-
-_Ideally none_
 
 ## Tests
 
 - [ ] I manually tested
 - [ ] I added unit test
-- [ ] I added e2e test
 - [ ] I ran the existing unit test and they do not fail
-- [ ] I ran the existing e2e test and they do not fail
