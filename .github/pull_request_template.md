@@ -1,17 +1,17 @@
-## Scope of the pull request
+**Scope of the pull request**
 
-Write here what the PR does. Also mention any issue it solves OR creates.
+Write here what the pull request does. Also mention any issue it solves and/or creates.
 
-### Solved
+**Solved issues**
 
 - #123
 - #456
 
-### Added
+**Added issues**
 
 - #789
 
-## Tests
+**Tests**
 
 - [ ] I manually tested
 - [ ] I added unit test
