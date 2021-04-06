@@ -10,7 +10,7 @@ jobs:
     name: Check whether repository secrets are set
     runs-on: ubuntu-latest
     outputs:
-      result: ${{ steps.check_secrets.result }}
+      result: ${{ steps.check_secrets.outputs.result }}
     steps:
     -
       name: Check secrets
