@@ -12,6 +12,7 @@ jobs:
     outputs:
       DOCKERHUB_USERNAME: ${{ steps.dockerhub_username.is_set}}
       DOCKERHUB_TOKEN: ${{ steps.dockerhub_token.is_set }}
+      ALL: ${{ steps.all.is_set }}
     steps:
     -
       name: Check whether DOCKERHUB_USERNAME secret is set
@@ -29,6 +30,12 @@ jobs:
       run: |
         echo "is_set: ${{ env.secret != '' }}"
         echo "::set-output name=is_set::${{ env.secret != '' }}"
+    -
+      name: All secrets
+      id: all_secrets
+      run: |
+        echo "is_set: ${{ secrets.DOCKEHUB_USERNAME != '' && secrets.DOCKEHUB_TOKENX != '' }}"
+        echo "::set-output name=is_set::${{ secrets.DOCKEHUB_USERNAME != '' && secrets.DOCKEHUB_TOKENX != '' }}"
 
   build_docker:
     name: Build multi-arch Docker image
