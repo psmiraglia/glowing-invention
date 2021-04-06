@@ -7,23 +7,29 @@ on:
 
 jobs:
   checksecrets:
-    name: Check id secrets were set
+    name: Check if repository secrets were set
     runs-on: ubuntu-latest
     outputs:
-      DOCKERHUB_USERNAME_is_set:
-      DOCKERHUB_TOKEN_is_set:
+      DOCKERHUB_USERNAME: ${{ steps.dockerhub_username.is_set}}
+      DOCKERHUB_TOKEN: ${{ steps.dockerhub_token.is_set }}
     steps:
     -
       name: Check whether DOCKERHUB_USERNAME is set
-      id: check_dockerhub_username
+      id: dockerhub_username
       env:
-        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKENX }}
+        secret: ${{ secrets.DOCKERHUB_USERNAME }}
       run: |
-        echo "DOCKERHUB_USERNAME_is_set: ${{ env.DOCKERHUB_USERNAME != '' }}"
-        echo "::set-output name=DOCKERHUB_USERNAME_is_set::${{ env.DOCKERHUB_USERNAME != '' }}"
-        echo "DOCKERHUB_TOKEN_is_set: ${{ env.DOCKERHUB_TOKEN != '' }}"
-        echo "::set-output name=DOCKERHUB_TOKEN_is_set::${{ env.DOCKERHUB_TOKEN != '' }}"
+        echo "is_set: ${{ env.secret != '' }}"
+        echo "::set-output name=is_set::${{ env.secret != '' }}"
+    -
+      name: Check whether DOCKERHUB_TOKEN is set
+      id: dockerhub_token
+      env:
+        secret: ${{ secrets.DOCKERHUB_TOKENX }}
+      run: |
+        echo "is_set: ${{ env.secret != '' }}"
+        echo "::set-output name=is_set::${{ env.secret != '' }}"
+
 #  docker:
 #    runs-on: ubuntu-latest
 #    steps:
