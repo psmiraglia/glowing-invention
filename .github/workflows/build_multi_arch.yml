@@ -7,7 +7,7 @@ on:
 
 jobs:
   check_secrets:
-    name: Check whether repository secrets were set
+    name: Check whether repository secrets are set
     runs-on: ubuntu-latest
     outputs:
       result: ${{ steps.check_secrets.result }}
@@ -26,26 +26,26 @@ jobs:
     - check_secrets
     steps:
     -
-      if: needs.check_secrets.result == 'true'
+      if: ${{ needs.check_secrets.result == 'true' }}
       name: Checkout
       uses: actions/checkout@v2
     -
-      if: needs.check_secrets.result == 'true'
+      if: ${{ needs.check_secrets.result == 'true' }}
       name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     -
-      if: needs.check_secrets.result == 'true'
+      if: ${{ needs.check_secrets.result == 'true' }}
       name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     -
-      if: needs.check_secrets.result == 'true'
+      if: ${{ needs.check_secrets.result == 'true' }}
       name: Login to DockerHub
       uses: docker/login-action@v1 
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     -
-      if: needs.check_secrets.result == 'true'
+      if: ${{ needs.check_secrets.result == 'true' }}
       name: Build and push
       uses: docker/build-push-action@v2
       with:
