@@ -17,7 +17,7 @@ jobs:
       id: check_secrets
       run: |
         echo "result: ${{ secrets.DOCKEHUB_USERNAME != '' && secrets.DOCKEHUB_TOKENX != '' }}"
-        echo "::set-output name=result::${{ secrets.DOCKEHUB_USERNAME != '' && secrets.DOCKEHUB_TOKENX != '' }}"
+        echo "::set-output name=result::${{ secrets.DOCKEHUB_USERNAME != '' && secrets.DOCKEHUB_TOKEN != '' }}"
 
   build_docker:
     name: Build multi-arch Docker image
