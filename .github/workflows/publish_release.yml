@@ -3,8 +3,8 @@ name: Do something on new release
 on:
   release:
     types:
-    - created
-    - published
+    - released
+    - prereleased
 
 jobs:
   doit:
@@ -15,12 +15,12 @@ jobs:
       run: |
         echo "${{ github.event_name }} (${{ github.event.action }})"
     -
-      if: ${{ github.event.action == 'created' }}
-      name: Do it only when created
+      if: ${{ github.event.action == 'prereleased' }}
+      name: Do it only when pre-released
       run: |
         echo "${{ github.event_name }} (${{ github.event.action }})"
     -
-      if: ${{ github.event.action == 'published' }}
-      name: Do it only when published
+      if: ${{ github.event.action == 'released' }}
+      name: Do it only when released
       run: |
         echo "${{ github.event_name }} (${{ github.event.action }})"
