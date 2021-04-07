@@ -1,6 +1,9 @@
 name: Do something on new release
 
-on: release
+on:
+  release:
+    types:
+    - published
 
 jobs:
   doit:
@@ -9,14 +12,14 @@ jobs:
     -
       name: Do It always
       run: |
-        echo "${{ github.event_name }} (${{ github.event.action }})"
+        echo "${{ github.event_name }} (${{ github.event.action }}, ${{ github.event }})"
     -
-      if: ${{ github.event.action == 'prereleased' }}
+      if: ${{ github.event.release.prerelease }}
       name: Do it only when pre-released
       run: |
         echo "${{ github.event_name }} (${{ github.event.action }})"
     -
-      if: ${{ github.event.action == 'released' }}
+      if: ${{ !github.event.release.prerelease }}
       name: Do it only when released
       run: |
         echo "${{ github.event_name }} (${{ github.event.action }})"
