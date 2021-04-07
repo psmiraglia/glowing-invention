@@ -2,7 +2,7 @@ name: Do something on new release
 
 on:
   release:
-    type:
+    types:
     - published
 
 jobs:
