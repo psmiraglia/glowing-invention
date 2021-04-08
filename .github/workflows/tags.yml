@@ -15,5 +15,5 @@ jobs:
       with:
         images: localhost:5000/myapp
         tags: |
-          type=ref,event=branch
+          type=ref,event=tag
           type=edge,branch=master
