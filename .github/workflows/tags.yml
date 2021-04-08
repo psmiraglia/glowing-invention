@@ -3,8 +3,7 @@ name: Docket tags
 on:
   push:
     branches: [master]
-  release:
-    types: [published]
+    tags: ['v*']
 
 jobs:
   doit:
@@ -16,5 +15,5 @@ jobs:
       with:
         images: localhost:5000/myapp
         tags: |
-          type=edge,branch=master
           type=ref,event=branch
+          type=edge,branch=master
