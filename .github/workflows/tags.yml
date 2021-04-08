@@ -1,0 +1,20 @@
+name: Docket tags
+
+on:
+  push:
+    branches: [master]
+  release:
+    types: [published]
+
+jobs:
+  doit:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: docker-meta
+      uses: crazy-max/ghaction-docker-meta@v2
+      with:
+        images: localhost:5000/myapp
+        tags: |
+          type=edge,branch=master
+          type=ref,event=branch
