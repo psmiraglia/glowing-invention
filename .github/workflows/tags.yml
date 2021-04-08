@@ -13,9 +13,12 @@ jobs:
       name: docker-meta
       uses: crazy-max/ghaction-docker-meta@v2
       with:
-        images: localhost:5000/myapp
+        images: |
+          localhost:5000/myapp
+          alice/myapp
+          ghcr.io/alice/myapp
+          
         tags: |
-          type=ref,event=tag
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
           type=semver,pattern={{major}}
