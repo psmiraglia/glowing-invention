@@ -28,6 +28,27 @@ version-resolver:
     labels:
       - 'patch'
   default: patch
+exclude-labels:
+- 'skip-changelog'
+autolabeler:
+-
+  label: 'bug'
+  branch:
+  - '/bug\/.+/'
+  - '/bugfix\/.+/'
+  - '/fix\/.+/'
+-
+  label: 'enhancement'
+  branch:
+  - '/feat\/.+/'
+  - '/feature\/.+/'
+  - '/enhancement\/.+/'
+-
+  label: 'chore'
+  branch:
+  - '/chore\/.+/'
+  - '/maintenance\/.+/'
+  - '/docs{0,1}\/.+/'
 template: |
   ## What's new
 
