@@ -40,7 +40,7 @@ autolabeler:
 -
   label: 'enhancement'
   branch:
-  - '/feat\/.+/'
+  - '/(.*:)?feat\/.+/'
   - '/feature\/.+/'
   - '/enhancement\/.+/'
 -
