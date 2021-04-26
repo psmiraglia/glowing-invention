@@ -6,6 +6,7 @@ on:
     - main
     tags:
     - 'v*'
+  workflow_dispatch:
 
 jobs:
   check_secrets:
@@ -52,14 +53,14 @@ jobs:
       uses: crazy-max/ghaction-docker-meta@v2
       with:
         images: |
-          ${{ secrets.DOCKER_BASE_REPO }}/spid-compliant-certificates
+          ${{ secrets.DOCKER_BASE_REPO }}/glowing-inventions
         tags: |
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
           type=semver,pattern={{major}}
           type=edge,branch=main
         labels: |
-          org.opencontainers.image.title=spid-compliant-certificates
+          org.opencontainers.image.title=glowing-inventions
     -
       name: Setup QEMU
       uses: docker/setup-qemu-action@v1
