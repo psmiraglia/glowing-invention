@@ -3,7 +3,6 @@ name: Docket tags
 on:
   push:
     branches: [master]
-    tags: ['v*']
   release:
     types:
     - published
