@@ -2,10 +2,13 @@ name: Docket tags
 
 on:
   push:
-    branches: [master]
-  release:
-    types:
-    - published
+    branches:
+    - 'master'
+    tags:
+    - 'v*'
+  #release:
+  #  types:
+  #  - published
 
 jobs:
   doit:
